@@ -8,7 +8,7 @@ packer {
 }
 
 source "amazon-ebs" "ubuntu" {
-  ami_name      = "ubuntu-20.04-a1innocent"
+  ami_name      = "ubuntu-20.04-a1innocent-{{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-east-1"
   source_ami_filter {
@@ -24,7 +24,7 @@ source "amazon-ebs" "ubuntu" {
 }
 
 build {
-  name = "ubuntu-20.04-a1innocent"
+  name = "ubuntu-20.04-a1innocent-{{timestamp}}"
   sources = [
     "source.amazon-ebs.ubuntu"
   ]
@@ -33,5 +33,4 @@ build {
     script = "script.sh"
   }
 }
-
 
