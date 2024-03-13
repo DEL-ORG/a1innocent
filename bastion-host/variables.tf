@@ -60,6 +60,11 @@ variable "enable_termination_protection" {
   default = false
 }
 
+variable "associate_public_ip_address" {
+  type    = bool
+  default = false
+}
+
 variable "allowed_ports" {
   description = "List of allowed ports"
   type        = list(number)

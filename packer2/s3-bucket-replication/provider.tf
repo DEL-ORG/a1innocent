@@ -1,6 +1,3 @@
-provider "aws" {
-  region = var.aws_region
-}
 
 ## Terraform block
 terraform {
@@ -11,4 +8,14 @@ terraform {
       version = "~> 4.0"
     }
   }
+}
+
+provider "aws" {
+  alias  = "main-bucket"
+  region = var.aws_region_main
+}
+
+provider "aws" {
+  alias  = "backup-bucket"
+  region = var.aws_region_backup
 }
